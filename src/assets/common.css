@@ -1,0 +1,17 @@
+.page{
+  color:rgba(0, 0, 0, 0.85);
+}
+.clearfix:after{
+  content: '';
+  clear: both;
+  display: block;
+}
+.left{
+  float: left;
+}
+.right{
+  float: right;
+}
+image{
+  vertical-align: middle;
+}
