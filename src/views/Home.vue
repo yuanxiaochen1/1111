@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <Header title="首页"></Header>
-    <img class="video" src="../assets/images/homeButton.png" alt="" />
+    <img class="video" src="../assets/images/homeButton.png" alt />
     <div class="head" :class="{ 'head-bg': !background }">
       <img :src="background" alt="header" />
       <!--      <div class="mask">-->
@@ -13,7 +13,7 @@
     </div>
     <ul class="list">
       <li v-for="item in list" class="item" :key="item.spu_id">
-        <a :href="'../product_detail/main?name=' + item.caption + '&spuId=' + item.spu_id">
+        <router-link to="/product_detail">
           <img class="img" :src="item.slideshow[0].res_key" alt />
           <div class="info">
             <div class="name">伊尹招牌 | 冲浪活海参</div>
@@ -29,7 +29,7 @@
               <img class="shop-cart right" :lazy-load="true" src="../assets/images/cart.png" alt />
             </div>
           </div>
-        </a>
+        </router-link>
       </li>
       <!-- 复制的 -->
       <li v-for="item in list" class="item" :key="item.spu_id">
@@ -52,7 +52,7 @@
         </router-link>
       </li>
       <li v-for="item in list" class="item" :key="item.spu_id">
-        <a :href="'../product_detail/main?name=' + item.caption + '&spuId=' + item.spu_id">
+        <router-link to="/product_detail">
           <img class="img" :src="item.slideshow[0].res_key" alt />
           <div class="info">
             <div class="name">伊尹招牌 | 冲浪活海参</div>
@@ -68,10 +68,10 @@
               <img class="shop-cart right" :lazy-load="true" src="../assets/images/cart.png" alt />
             </div>
           </div>
-        </a>
+        </router-link>
       </li>
       <li v-for="item in list" class="item" :key="item.spu_id">
-        <a :href="'../product_detail/main?name=' + item.caption + '&spuId=' + item.spu_id">
+        <router-link to="/product_detail">
           <img class="img" :src="item.slideshow[0].res_key" alt />
           <div class="info">
             <div class="name">伊尹招牌 | 冲浪活海参</div>
@@ -87,7 +87,7 @@
               <img class="shop-cart right" :lazy-load="true" src="../assets/images/cart.png" alt />
             </div>
           </div>
-        </a>
+        </router-link>
       </li>
       <!-- 复制结束 -->
     </ul>

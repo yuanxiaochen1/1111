@@ -41,9 +41,10 @@ export default {
   display: flex;
   justify-content: space-between;
   .title {
-    width: 36px;
+    width: 180px;
     height: 27px;
     font-size: 18px;
+    text-align: center;
     font-family: PingFangSC-Medium, PingFang SC;
     font-weight: 500;
     color: rgba(24, 24, 24, 1);
