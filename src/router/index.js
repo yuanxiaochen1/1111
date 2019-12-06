@@ -27,6 +27,16 @@ const routes = [
     path: "/wallet",
     name: "wallet",
     component: () => import("../views/wallet.vue")
+  },
+  {
+    path: "/backups",
+    name: "backups",
+    component: () => import("../views/Backups.vue")
+  },
+  {
+    path: "/confirm",
+    name: "confirm",
+    component: () => import("../views/Confirm.vue")
   }
 ];
 
