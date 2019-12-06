@@ -2,18 +2,18 @@
   <div class="page">
     <Header title="伊尹招牌 | 冲浪活海参"></Header>
     <div class="main">
-      <van-swipe @change="onChange">
+      <van-swipe @change="onChange" :autoplay="3000">
         <van-swipe-item>
           <img src alt class="swiperImg" />
         </van-swipe-item>
         <van-swipe-item>
-          <img src alt class="swiperImg" />
+          <img src alt class="swiperImg" style="background:red" />
         </van-swipe-item>
         <van-swipe-item>
-          <img src alt class="swiperImg" />
+          <img src alt class="swiperImg" style="background:green" />
         </van-swipe-item>
         <van-swipe-item>
-          <img src alt class="swiperImg" />
+          <img src alt class="swiperImg" style="background:yellow" />
         </van-swipe-item>
 
         <div class="custom-indicator" slot="indicator">{{ current + 1 }}/4</div>
