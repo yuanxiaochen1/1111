@@ -13,14 +13,14 @@
     </div>
     <ul class="list">
       <li v-for="item in list" class="item" :key="item.spu_id">
-        <router-link to="/product_detail">
+        <router-link :to="{ path: '/product_detail', query: { name: item.caption, spuId: item.spu_id } }">
           <img class="img" :src="item.slideshow[0].res_key" alt />
           <div class="info">
-            <div class="name">伊尹招牌 | 冲浪活海参</div>
+            <div class="name">{{ item.caption }}</div>
             <div class="price-wrap clearfix">
               <div class="price_top">
-                <!-- <span v-if="item.original_price">¥</span>{{ item.original_price }} -->
-                发货率:98% 发货速度:1.5天 提货率:66%
+                <span v-if="item.original_price">¥</span>{{ item.original_price }}
+                <!-- 发货率:98% 发货速度:1.5天 提货率:66% -->
               </div>
               <div class="price left">
                 <span>￥</span>
@@ -31,65 +31,6 @@
           </div>
         </router-link>
       </li>
-      <!-- 复制的 -->
-      <li v-for="item in list" class="item" :key="item.spu_id">
-        <router-link to="/product_detail">
-          <img class="img" :src="item.slideshow[0].res_key" alt />
-          <div class="info">
-            <div class="name">伊尹招牌 | 冲浪活海参</div>
-            <div class="price-wrap clearfix">
-              <div class="price_top">
-                <!-- <span v-if="item.original_price">¥</span>{{ item.original_price }} -->
-                发货率:98% 发货速度:1.5天 提货率:66%
-              </div>
-              <div class="price left">
-                <span>￥</span>
-                {{ item.price }}
-              </div>
-              <img class="shop-cart right" :lazy-load="true" src="../assets/images/cart.png" alt />
-            </div>
-          </div>
-        </router-link>
-      </li>
-      <li v-for="item in list" class="item" :key="item.spu_id">
-        <router-link to="/product_detail">
-          <img class="img" :src="item.slideshow[0].res_key" alt />
-          <div class="info">
-            <div class="name">伊尹招牌 | 冲浪活海参</div>
-            <div class="price-wrap clearfix">
-              <div class="price_top">
-                <!-- <span v-if="item.original_price">¥</span>{{ item.original_price }} -->
-                发货率:98% 发货速度:1.5天 提货率:66%
-              </div>
-              <div class="price left">
-                <span>￥</span>
-                {{ item.price }}
-              </div>
-              <img class="shop-cart right" :lazy-load="true" src="../assets/images/cart.png" alt />
-            </div>
-          </div>
-        </router-link>
-      </li>
-      <li v-for="item in list" class="item" :key="item.spu_id">
-        <router-link to="/product_detail">
-          <img class="img" :src="item.slideshow[0].res_key" alt />
-          <div class="info">
-            <div class="name">伊尹招牌 | 冲浪活海参</div>
-            <div class="price-wrap clearfix">
-              <div class="price_top">
-                <!-- <span v-if="item.original_price">¥</span>{{ item.original_price }} -->
-                发货率:98% 发货速度:1.5天 提货率:66%
-              </div>
-              <div class="price left">
-                <span>￥</span>
-                {{ item.price }}
-              </div>
-              <img class="shop-cart right" :lazy-load="true" src="../assets/images/cart.png" alt />
-            </div>
-          </div>
-        </router-link>
-      </li>
-      <!-- 复制结束 -->
     </ul>
     <!-- <div class="last">{{bottom}}</div> -->
     <!-- <button v-if="wingAuthorized" class="share" open-type="share"></button>

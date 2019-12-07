@@ -41,9 +41,12 @@ export default {
   display: flex;
   justify-content: space-between;
   .title {
-    width: 180px;
+    width: 260px;
     height: 27px;
     font-size: 18px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     text-align: center;
     font-family: PingFangSC-Medium, PingFang SC;
     font-weight: 500;
