@@ -261,6 +261,7 @@ export default {
       margin-right: 12px;
       border-radius: 50%;
       flex-shrink: 0;
+      background: #000000;
     }
 
     .manufacturer {
@@ -275,6 +276,8 @@ export default {
         color: rgba(0, 0, 0, 0.85);
         line-height: 17px;
         text-align: left;
+        padding-left: 3px;
+        margin-top: 3px;
       }
 
       .address {
@@ -286,7 +289,9 @@ export default {
         white-space: nowrap;
         text-overflow: ellipsis;
         overflow: hidden;
-
+        text-align: left;
+        padding-left: 3px;
+        margin-top: 10px;
         span {
           color: #2b3b75;
           font-weight: 400;
