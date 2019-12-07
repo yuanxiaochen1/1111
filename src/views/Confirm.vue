@@ -39,29 +39,37 @@
     <div class="div"></div>
     <div class="totals">
       <div class="total">
+        <div class="discount">商品金额</div>
+        <div class="discount1">¥ 1,199</div>
+        <!-- {{confirmOrderData.charges.carriage}} -->
+      </div>
+      <div class="total">
         <div class="discount">优惠减免</div>
         <div class="discount1"><span class="discount2">会员</span>- ¥ 20,300</div>
         <!-- {{ confirmOrderData.charges.discounts }} -->
       </div>
       <div class="total">
-        <div class="discount1"><span class="discount2">会员</span>- ¥ 10</div>
+        <div class="discount1"><span class="discount2">优惠</span>- ¥ 10</div>
         <!-- {{ confirmOrderData.charges.discounts }} -->
       </div>
       <div class="total">
         <div class="discount">运费</div>
-        <div class="discount1">¥ 1,199</div>
+        <div class="discount1">¥ 0</div>
         <!-- {{confirmOrderData.charges.carriage}} -->
       </div>
       <div class="total">
-        <div class="total-merchandise">商品金额</div>
+        <div class="total-merchandise">合计</div>
         <div class="total-merchandise-pic">¥ 1,399</div>
         <!-- {{ confirmOrderData.charges.total }} -->
       </div>
     </div>
     <div class="buttonBox">
-      <router-link to="/wallet">
-        <div class="button"><span>¥ 1,199 </span>立即支付</div>
-      </router-link>
+      <!-- <router-link to="/wallet"> -->
+      <div class="button" @click="ChangeLoad"><span>¥ 1,199</span>立即支付</div>
+      <!-- </router-link> -->
+    </div>
+    <div class="load" v-show="loadShow">
+      <van-loading size="24px" vertical type="spinner">地址验证中</van-loading>
     </div>
     <van-action-sheet :show="show" :actions="actions" cancel-text="取消">
       <!--  
@@ -74,7 +82,11 @@
 </template>
 
 <script>
+import Vue from "vue";
 import Header from "../components/header.vue";
+import { Loading } from "vant";
+
+Vue.use(Loading);
 /*  import store from "@/store"; */
 /*import fly from "../../utils/request";
 import util from "../../utils/util";
@@ -84,6 +96,7 @@ export default {
     return {
       loading: false,
       disabled: false,
+      loadShow: false,
       show: false,
       actions: [
         {
@@ -99,6 +112,11 @@ export default {
   },
   components: {
     Header
+  },
+  methods: {
+    ChangeLoad() {
+      this.loadShow = !this.loadShow;
+    }
   } /* ,
  computed: {
     confirmOrderData() {
@@ -152,8 +170,34 @@ page {
   min-height: 100vh;
   overflow: hidden;
   background: rgba(242, 244, 246, 1);
+  position: relative;
   .header {
     margin-bottom: 20px;
+  }
+  .load {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    .van-loading {
+      margin: 26px auto 0;
+      color: #ffffff;
+    }
+    .van-loading__text {
+      color: #ffffff;
+      font-size: 14px;
+      font-family: PingFangSC-Regular, PingFang SC;
+      font-weight: 400;
+      color: rgba(255, 255, 255, 1);
+      line-height: 20px;
+    }
   }
   .address {
     margin: 0 auto;
@@ -367,7 +411,7 @@ page {
         font-weight: 500;
         color: rgba(0, 0, 0, 0.85);
         line-height: 20px;
-        margin-top: 15px;
+        margin-top: 10px;
       }
 
       .total-merchandise-pic {
