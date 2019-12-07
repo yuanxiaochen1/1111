@@ -1,72 +1,377 @@
 <template>
   <div class="confirm">
-    <Header title="确认订单"></Header>
-    <div class="bg">
-      <span class="bgleft">接收地址</span>
-      <ul class="bgright">
-        <li>怎么添加地址</li>
-        <li>
+    <Header title="确认地址"></Header>
+    <div class="address">
+      <div class="dizhi">
+        <div class="left">接受订单</div>
+        <div class="right">
+          怎么添加地址
           <span>？</span>
-        </li>
-      </ul>
-      <input type="text" placeholder="请输入物影地址码" />
+        </div>
+        <input type="text" placeholder="请输入物影地址码" class="context" />
+      </div>
     </div>
+    <div class="commoditys">
+      <div class="commodity">
+        <!-- v-for="item in confirmOrderData.skus" :key="item.origins" -->
+        <img class="commodity-img" src="" />
+        <!-- :src="item.specs.image.res_key" -->
+        <div class="commodity-content">
+          <div class="commodity-name"></div>
+          <!-- {{ item.caption }} -->
+          <div class="commodity-type">经典款 200g/盒/ x 1件</div>
+          <!-- {{ item.attrs }} × {{ item.num }} {{ item.unit_name }} -->
+          <div class="commodity-mo">
+            <div class="money">¥ 1，399</div>
+            <!-- {{ item.price }} -->
+          </div>
+        </div>
+      </div>
+      <div class="coupon">
+        <!-- @click="toCardQuan " -->
+        <div class="purchasing-method-text">优惠券</div>
+        <div class="good">
+          <div class="goods">满1000减200</div>
+          <img class="goods-img" src="../assets/images/right-arrow.png" />
+        </div>
+      </div>
+    </div>
+    <div class="div"></div>
+    <div class="totals">
+      <div class="total">
+        <div class="total-merchandise">商品金额</div>
+        <div class="total-merchandise-pic">¥ 1,399</div>
+        <!-- {{ confirmOrderData.charges.total }} -->
+      </div>
+      <div class="total">
+        <div class="discount">优惠减免</div>
+        <div class="discount"><span>会员</span>- ¥ 200</div>
+        <div class="discount"><span>优惠</span>- ¥ 10</div>
+        <!-- {{ confirmOrderData.charges.discounts }} -->
+      </div>
+      <div class="total">
+        <div class="discount">运费</div>
+        <div class="discount">¥ 0</div>
+        <!-- {{ confirmOrderData.charges.carriage }} -->
+        <div class="discount">合计</div>
+        <div class="discount">¥ 1，199</div>
+        <!-- {{confirmOrderData.charges.carriage}} -->
+      </div>
+    </div>
+    <div class="settlement">
+      <div class="promotion-money">
+        <div class="promotion-rmb">¥</div>
+        <div class="promotion-price">1，199</div>
+        <!-- {{totalPrice}} -->
+      </div>
+      <van-button round type="danger" custom-class="gosettlement" :loading="loading" :disabled="disabled">
+        <!--   @click="pay" -->
+        立即支付
+      </van-button>
+    </div>
+    <van-action-sheet :show="show" :actions="actions" cancel-text="取消">
+      <!--  
+        @select="onSelect" 
+        @cancel="onClose"
+      @close="onClose"
+      -->
+    </van-action-sheet>
   </div>
 </template>
 
 <script>
 import Header from "../components/header.vue";
+/*  import store from "@/store"; */
+/*import fly from "../../utils/request";
+import util from "../../utils/util";
+import lostAccuracy from "../../utils/lostAccuracy"; */
 export default {
   data() {
-    return {};
+    return {
+      loading: false,
+      disabled: false,
+      show: false,
+      actions: [
+        {
+          name: "暂不提货，存入账户",
+          value: 1
+        },
+        {
+          name: "立即提货",
+          value: 2
+        }
+      ]
+    };
   },
   components: {
     Header
-  }
+  } /* ,
+ computed: {
+    confirmOrderData() {
+      return store.state.confirmOrderData;
+    } 
+  },
+  methods: {
+    toCardQuan() {
+      mpvue.navigateTo({ url: "../card_quan/main" });
+    } ,
+     onSelect (event) {
+        if (event.mp.detail.value === 2) {
+          for (let i = 0; i < this.confirmOrderData.skus.length; i++) {
+            let isDelivery = util.isDelivery(this.confirmOrderData.skus[i].delivery_time, 1)
+            if (!isDelivery) {
+              console.log('第', i, '件商品不可提货')
+              return
+            } else {
+              console.log('第', i, '件商品可提货')
+            }
+          }
+        }
+        this.actionsName = event.mp.detail.name
+        this.deliveryType = event.mp.detail.value
+        this.show = false
+      },
+      onClose () {
+        this.show = false
+      },
+   
+  } */
 };
 </script>
+<style>
+page {
+  background: #f2f4f6;
+}
+
+.gosettlement {
+  width: 170px !important;
+  height: 40px !important;
+  font-size: 15px !important;
+  line-height: 40px !important;
+  background: #eea63f !important;
+  border: 0 !important;
+}
+</style>
 <style lang="less" scoped>
 .confirm {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   width: 375px;
   height: 905px;
   background: rgba(242, 244, 246, 1);
-  .bg {
-    margin-top: 99px;
+  .header {
+    margin-bottom: 20px;
+  }
+  .address {
+    margin: 0 auto;
+    margin-top: 78px;
     width: 355px;
     height: 92px;
     background: rgba(255, 255, 255, 1);
     border-radius: 4px;
-    .bgleft {
-      float: left;
-      margin-left: 10px;
-      width: 59px;
-      height: 20px;
-      font-size: 14px;
-      font-family: PingFangSC-Medium, PingFang SC;
-      font-weight: 500;
-      color: rgba(0, 0, 0, 0.85);
-      line-height: 20px;
-    }
-    .bgright {
-      float: right;
-      margin-right: 21px;
-      width: 95px;
-      height: 17px;
-      li {
-        margin-left: 2px;
+    .dizhi {
+      width: 339px;
+      display: flex;
+      justify-content: space-between;
+      .left {
+        margin-left: 10px;
+        width: 59px;
+        height: 20px;
+        font-size: 14px;
+        font-family: PingFangSC-Medium, PingFang SC;
+        font-weight: 500;
+        color: rgba(0, 0, 0, 0.85);
+        line-height: 20px;
+      }
+      .right {
+        margin-right: 20px;
+        width: 105px;
+        height: 17px;
+        font-size: 12px;
+        font-family: PingFangSC-Light, PingFang SC;
+        font-weight: 300;
         color: rgba(240, 143, 3, 1);
-        background: rgba(255, 255, 255, 1);
-        border-radius: 4px;
+        line-height: 17px;
         span {
           width: 15px;
           height: 15px;
-          border-radius: 50%;
           border: 1px solid rgba(240, 143, 3, 1);
+          border-radius: 50%;
         }
       }
+      .context {
+        display: inline-block;
+        margin: 0 auto;
+        width: 335px;
+        height: 40px;
+        background: rgba(247, 181, 0, 0.1);
+        border-radius: 4px;
+        border: 1px solid rgba(240, 143, 3, 1);
+        font-size: 12px;
+        font-family: PingFangSC-Light, PingFang SC;
+        font-weight: 300;
+        color: rgba(0, 0, 0, 0.85);
+        line-height: 17px;
+      }
+    }
+  }
+
+  .div {
+    height: 15px;
+  }
+
+  .commoditys {
+    padding: 0 10px;
+    background: rgba(255, 255, 255, 1);
+    border-radius: 4px;
+    .commodity {
+      height: 130px;
+      border-bottom: 1px solid rgba(242, 244, 246, 1);
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      .commodity-img {
+        width: 100px;
+        height: 100px;
+        background: rgba(216, 216, 216, 1);
+        border-radius: 1px;
+      }
+
+      .commodity-content {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        height: 100px;
+        margin-left: 15px;
+        margin-right: 14px;
+        .commodity-name {
+          // height: 21px;
+          font-size: 15px;
+          font-family: PingFangSC-Medium;
+          font-weight: 500;
+          color: rgba(0, 0, 0, 0.85);
+          line-height: 21px;
+        }
+
+        .commodity-type {
+          margin-top: 7px;
+          height: 18px;
+          font-size: 13px;
+          font-family: PingFangSC-Light;
+          font-weight: 300;
+          color: rgba(0, 0, 0, 0.85);
+          line-height: 18px;
+        }
+
+        .commodity-mo {
+          display: flex;
+          flex: 1;
+          flex-direction: row;
+          align-items: flex-end;
+          justify-content: flex-end;
+          .money {
+            height: 22px;
+            font-size: 16px;
+            font-family: PingFangSC-Regular;
+            font-weight: 400;
+            color: rgba(0, 0, 0, 0.85);
+            line-height: 22px;
+          }
+        }
+      }
+    }
+    .coupon {
+      display: flex;
+      height: 50px;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      .good {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        .goods {
+          height: 18px;
+          font-size: 13px;
+          font-family: PingFangSC-Light;
+          font-weight: 300;
+          color: rgba(0, 0, 0, 0.85);
+          line-height: 18px;
+        }
+
+        .goods-img {
+          margin-left: 10px;
+          width: 16px;
+          height: 16px;
+        }
+      }
+    }
+  }
+
+  .totals {
+    padding: 10px 10px 0;
+    background: rgba(255, 255, 255, 1);
+    border-radius: 4px;
+    .total {
+      padding-bottom: 10px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      .discount {
+        height: 18px;
+        font-size: 13px;
+        font-family: PingFangSC-Light;
+        font-weight: 300;
+        color: rgba(0, 0, 0, 0.85);
+        line-height: 18px;
+      }
+      .total-merchandise {
+        height: 20px;
+        font-size: 14px;
+        font-family: PingFangSC-Medium;
+        font-weight: 500;
+        color: rgba(0, 0, 0, 0.85);
+        line-height: 20px;
+      }
+
+      .total-merchandise-pic {
+        height: 22px;
+        font-size: 16px;
+        font-family: PingFangSC-Semibold;
+        font-weight: 600;
+        color: rgba(238, 166, 63, 1);
+        line-height: 22px;
+      }
+    }
+  }
+  .settlement {
+    padding-bottom: 30px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    height: 64px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(255, 255, 255, 1);
+    padding-left: 16px;
+    padding-right: 10px;
+    .promotion-money {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-end;
+    }
+    .promotion-rmb {
+      margin-right: 5px;
+      font-size: 14px;
+      font-family: PingFangSC-Light;
+      color: rgba(0, 0, 0, 1);
+    }
+    .promotion-price {
+      font-size: 20px;
+      color: rgba(0, 0, 0, 1);
+      font-weight: bold;
     }
   }
 }

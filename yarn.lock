@@ -7942,8 +7942,8 @@ validate-npm-package-license@^3.0.1:
 
 vant@^2.2.16:
   version "2.2.16"
-  resolved "https://registry.npm.taobao.org/vant/download/vant-2.2.16.tgz?cache=0&sync_timestamp=1575371591399&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fvant%2Fdownload%2Fvant-2.2.16.tgz#0d03b4715d291ec3250850aed4bf5e5c1546cdea"
-  integrity sha1-DQO0cV0pHsMlCFCu1L9eXBVGzeo=
+  resolved "https://registry.yarnpkg.com/vant/-/vant-2.2.16.tgz#0d03b4715d291ec3250850aed4bf5e5c1546cdea"
+  integrity sha512-QvsgnU4d5smoSzFlbzm7eLCsmDAasvp1dztN6u34VQn9RQETY6rntO98UQX2F7h7DLFqHW/Sqa2pY113Z+unFg==
   dependencies:
     "@babel/runtime" "7.x"
     "@vant/icons" "1.1.15"
