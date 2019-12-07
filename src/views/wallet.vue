@@ -28,7 +28,8 @@ export default {
   background-color: #f2f4f6;
   overflow: hidden;
   .imgBox {
-    background-color: white;
+    background: url(../assets/images/erweima.png) no-repeat;
+    background-size: 100% 100%;
     width: 311px;
     height: 274px;
     margin: 20vh auto 0;
@@ -38,7 +39,7 @@ export default {
       width: 150px;
       height: 150px;
       background: black;
-      margin: 30px auto 0;
+      margin: 35px auto 0;
     }
     div {
       width: 100%;
