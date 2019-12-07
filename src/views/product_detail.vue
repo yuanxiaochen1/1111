@@ -522,7 +522,7 @@ export default {
   .button {
     margin: 0 auto;
     height: 44px;
-    width: 80%;
+    width: 300px;
     text-align: center;
     line-height: 44px;
     background: rgba(238, 166, 63, 1);
