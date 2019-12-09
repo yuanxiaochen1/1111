@@ -86,7 +86,7 @@
         </div>
       </div>
       <div class="buttonBox">
-        <router-link to="/wallet">
+        <router-link to="/confirm">
           <div class="button">立即购买</div>
         </router-link>
       </div>
@@ -285,6 +285,11 @@ export default {
 };
 </script>
 <style scoped lang="less">
+.page {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+}
 .main {
   margin-top: 50px;
   .swiperImg {

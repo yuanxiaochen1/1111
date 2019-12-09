@@ -4,10 +4,12 @@
     <div class="address">
       <div class="dizhi">
         <div class="left">接受订单</div>
-        <div class="right">
-          怎么添加地址
-          <span>？</span>
-        </div>
+        <router-link to="/backups">
+          <div class="right">
+            怎么添加地址
+            <span>？</span>
+          </div>
+        </router-link>
         <input type="text" placeholder="请输入物影地址码" class="context" v-model="myAddress" />
       </div>
     </div>
@@ -45,15 +47,11 @@
       </div>
       <div class="total">
         <div class="discount">优惠减免</div>
-        <div class="discount1">
-          <span class="discount2">会员</span>- ¥ 20,300
-        </div>
+        <div class="discount1"><span class="discount2">会员</span>- ¥ 20,300</div>
         <!-- {{ confirmOrderData.charges.discounts }} -->
       </div>
       <div class="total">
-        <div class="discount1">
-          <span class="discount2">优惠</span>- ¥ 10
-        </div>
+        <div class="discount1"><span class="discount2">优惠</span>- ¥ 10</div>
         <!-- {{ confirmOrderData.charges.discounts }} -->
       </div>
       <div class="total">
@@ -69,9 +67,7 @@
     </div>
     <div class="buttonBox">
       <!-- <router-link to="/wallet"> -->
-      <div class="button" @click="ChangeLoad">
-        <span>¥ 1,199</span> &nbsp;立即支付
-      </div>
+      <div class="button" @click="ChangeLoad"><span>¥ 1,199</span> &nbsp;立即支付</div>
       <!-- </router-link> -->
     </div>
     <div class="load" v-show="loadShow">
@@ -88,8 +84,6 @@
 </template>
 
 <script>
-import store from '@/store';
-import axios from "axios";
 import Vue from "vue";
 import Header from "../components/header.vue";
 import { Loading } from "vant";
@@ -119,17 +113,16 @@ export default {
       ]
     };
   },
-  computed: {
-    confirmOrderData() {
-      return store.state.confirmOrderData;
-    }
-  },
   components: {
     Header
   },
   methods: {
     ChangeLoad() {
       this.loadShow = !this.loadShow;
+      let timer = setTimeout(() => {
+        clearTimeout(timer);
+        this.$router.push("/wallet");
+      }, 3000);
     }
   } /* ,
  computed: {

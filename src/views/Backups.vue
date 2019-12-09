@@ -8,7 +8,7 @@
       </div>
       <p class="p0">长按识别二维码</p>
       <ul class="copy">
-        <li class="p1">！</li>
+        <li class="p1"><span>&nbsp;！</span></li>
         <li class="copy_text">进入钱包小程序，复制地址后返回粘贴</li>
       </ul>
       <div class="p3">
@@ -35,28 +35,30 @@ export default {
 </script>
 <style lang="less" scoped>
 .backups {
-  width: 375px;
-  height: 812px;
+  /*  width: 375px;
+  height: 800px;*/
+  min-height: 100vh;
+  width: 100%;
   background: rgba(242, 244, 246, 1);
   .bg {
     margin: 0 auto;
     padding-top: 119px;
     width: 311px;
     height: 390px;
-    display: flex;
+    /*  display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: center; */
     background: url(../assets/images/codebg.png) no-repeat 100%;
     background-size: 311px 390px;
     .backupsid {
       margin-top: -30px;
-      width: 98px;
-      height: 20px;
-      font-size: 14px;
+      /* width: 26%; */
+      height: 6%;
+      font-size: 4%;
       font-family: PingFangSC-Medium, PingFang SC;
       font-weight: 500;
       color: rgba(0, 0, 0, 0.85);
-      line-height: 20px;
+      line-height: 14px;
     }
     .code {
       width: 150px;
@@ -64,16 +66,16 @@ export default {
       margin-top: 20px;
 
       img {
-        width: 143px;
+        width: 148px;
         height: 149px;
         /* background: rgba(0, 0, 0, 1); */
         /*  border-radius: 4px; */
       }
     }
     .p0 {
-      margin-top: 10px;
-      width: 84px;
-      height: 17px;
+      margin-top: 4%;
+      /* width: 22.4%; */
+      height: 5%;
       font-size: 12px;
       font-family: PingFangSC-Regular, PingFang SC;
       font-weight: 400;
@@ -81,30 +83,37 @@ export default {
       line-height: 17px;
     }
     .copy {
+      align-content: center;
       margin-top: 15px;
-      width: 271px;
-      height: 31px;
+      /* width: 73%; */
+      height: 8%;
       background: rgba(247, 181, 0, 0.1);
       border-radius: 2px;
       border: 1px solid rgba(240, 143, 3, 0.1);
       .p1 {
-        margin-top: 9px;
-        margin-left: 33px;
         display: inline-block;
-        padding-left: 3px;
+        /* padding-left: 2px; */
         font-size: 11px;
         width: 12px;
         height: 12px;
-        color: rgba(240, 143, 3, 1);
-        border: 1px solid rgba(240, 143, 3, 1);
-        border-radius: 50%;
+        span {
+          display: block;
+          text-align: right;
+          box-sizing: border-box;
+          width: 15px;
+          height: 14px;
+          line-height: 14px;
+          color: rgba(240, 143, 3, 1);
+          border: 1px solid rgba(240, 143, 3, 1);
+          border-radius: 50%;
+        }
       }
       .copy_text {
         margin-top: 8px;
         display: inline-block;
         text-align: center;
-        margin-left: 3px;
-        width: 187px;
+        margin-left: 8px;
+        width: 69%;
         height: 16px;
         font-size: 11px;
         font-family: PingFangSC-Medium, PingFang SC;
@@ -116,8 +125,8 @@ export default {
     .p3 {
       text-align: center;
       margin-top: 27px;
-      width: 274px;
-      height: 38px;
+      /* width: 274px; */
+      /* height: 38px; */
       font-size: 12px;
       font-family: PingFangSC-Regular, PingFang SC;
       font-weight: 400;
@@ -130,9 +139,9 @@ export default {
   }
   .confoot {
     margin: 0 auto;
-    margin-top: 20px;
+    margin-top: -20px;
 
-    width: 200px;
+    width: 53%;
     height: 50px;
     background: rgba(238, 166, 63, 1);
     border-radius: 25px;
@@ -141,7 +150,7 @@ export default {
     align-items: center;
 
     span {
-      width: 37px;
+      /*  width: 37px; */
       height: 25px;
       font-size: 18px;
 
